@@ -1,16 +1,9 @@
 """
     concat multiple excel files to one
 """
-import warnings
-
 import openpyxl
-from openpyxl_image_loader import SheetImageLoader
-
 
 from simple_loggers import SimpleLogger
-
-
-warnings.filterwarnings('ignore')
 
 
 class ExcelConcat(object):

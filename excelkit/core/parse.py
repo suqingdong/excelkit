@@ -36,7 +36,7 @@ class ExcelParser(object):
 
     def choose_sheet(self, workbook):
         context = dict(enumerate(workbook.sheetnames))
-        click.echo('{}'.format(json.dumps(context, ensure_ascii=False)), err=True)
+        click.secho('{}'.format(json.dumps(context, indent=2, ensure_ascii=False)), err=True, fg='bright_green')
 
         while True:
             idxes = click.prompt('please choose one or more sheets, separate by comma', err=True)
@@ -44,7 +44,7 @@ class ExcelParser(object):
                 if int(idx) not in context:
                     self.logger.warning('bad choice, choose from: {}'.format(list(context.keys())))
                     continue
-            sheets = [workbook.worksheets[int(idx)] for idx in idxes]
+            sheets = [workbook.worksheets[int(idx)] for idx in idxes.split(',')]
             return sheets
 
     def get_data(self, worksheets, skip=None, limit=None, fillna=''):
