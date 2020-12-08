@@ -38,7 +38,7 @@ examples:
 @click.option('--header', help='use first row as header', is_flag=True)
 @click.option('--pager', help='echo via pager', is_flag=True)
 @click.option('--read-only', help='open excel in read-only mode, for large file', is_flag=True)
-@click.option('--data-only', help='open excel in data-only mode, for large file', is_flag=True)
+@click.option('--data-only', help='open excel in data-only mode', is_flag=True)
 @click.option('--color', help='output with color')
 def parse_cli(**kwargs):
     parser = ExcelParser()
